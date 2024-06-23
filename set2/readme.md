@@ -1,1 +1,1 @@
-TODO: Reflect on what you learned this week and what is still unclear.
+This week was interesting, and I can say it was much better than last week because I at least knew some of the uses of words and symbols. For the loops section, I looked up youtube videos and tried to figure them out, but when I couldn't i looked at Ben's answers (sad face). The pyramid took so much time to do and I was still unable to do it.

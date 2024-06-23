@@ -17,7 +17,14 @@ def loop_ranger(start, stop=None, step=1):
     Look up for how range() works in the python docs. You could  answer this
     with just the range function, but we'd like you to do it the long way.
     """
-    return None
+    loop_ranger =[]
+    
+    at_start = start
+
+    while at_start < stop:
+        loop_ranger.append(at_start)
+        at_start = at_start + step
+    return loop_ranger
 
 
 def two_step_ranger(start, stop):
@@ -28,7 +35,12 @@ def two_step_ranger(start, stop):
 
     You can either reuse loop_ranger, or the range function that in the standard library
     """
-    return None
+    number = []
+
+    for i in range(start,stop,2):
+        number.append(i)
+    return number
+
 
 
 def stubborn_asker(low, high):
@@ -39,7 +51,14 @@ def stubborn_asker(low, high):
 
     Look up the docs for a function called "input"
     """
-    return None
+def stubborn_asker(low,high):
+
+    number = input(f"Enter a {low} and {high} number: ")
+    number = int(number)
+    while number < low or number > high:
+            number = input(f"Enter a {low} and {high} number: ")
+            number = int(number)
+    return number
 
 
 def not_number_rejector(message):
@@ -49,7 +68,13 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    while True:
+        number = input(message)
+        try:
+            number = int(number)
+            return number
+        except Exception as e:
+            print("not a number")
 
 
 def super_asker(low, high):
@@ -58,7 +83,15 @@ def super_asker(low, high):
     Combine what you learnt from stubborn_asker and not_number_rejector
     to make a function that does it all!
     """
-    return None
+    while True:
+        try:
+            number = not_number_rejector("Enter a number: ")
+            if number < low or number > high:
+                return number
+            else: print("number is not in range")
+        except: 
+            print("give me a number")
+
 
 
 if __name__ == "__main__":

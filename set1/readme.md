@@ -1,2 +1,1 @@
-TODO: Reflect on what you learned this week and what is still unclear.
-Python is hard
+Python is crazy hard but I think I'm kind of getting the hang of it. (not really).I am not too sure about what was going on last week and only know what a push and commit is. But I am very  excited for what's to come. 
