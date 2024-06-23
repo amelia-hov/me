@@ -1,1 +1,1 @@
-TODO: Reflect on what you learned this week and what is still unclear.
+This week's exercises werre interesting and tough. Because of how tough it was, I decided to watch some beginner tutorials on youtube and finally understand what each function and method does. I feel slightly more confident as each week passes by. Just praying that I do ok in the quiz. :)
