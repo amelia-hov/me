@@ -11,8 +11,7 @@ import sys
 LOCAL = os.path.dirname(os.path.realpath(__file__))  # the context of this file
 CWD = os.getcwd()  # The curent working directory
 if LOCAL != CWD:
-    print(
-        f"""
+    print(f"""
     Be careful that your relative paths are
     relative to where you think they are
     LOCAL: {LOCAL}
@@ -40,8 +39,11 @@ def get_some_details():
     json_data = open(LOCAL + "/lazyduck.json").read()
 
     data = json.loads(json_data)
-    return {"lastName": None, "password": None, "postcodePlusID": None}
-
+    last_name_list = data["results"][0]["name"]["last"]
+    password_list = data["results"][0]["login"]["password"]
+    postcode_and_ID_list = data["results"][0]["location"]["postcode"] + int(data["results"][0]["id"]["value"])
+    return {"lastName":last_name_list, "password": password_list, "postcodePlusID": postcode_and_ID_list}
+    
 
 def wordy_pyramid():
     """Make a pyramid out of real words.
@@ -77,9 +79,25 @@ def wordy_pyramid():
     ]
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
+    """200 means everything is good"""
+    
     pyramid = []
 
-    return pyramid
+    for i in range(3, 20, 2):
+        url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}"
+        response = requests.get(url)
+        if response.status_code == 200:
+            word = response.text
+            pyramid.append(word)
+
+    for i in range(20, 3, -2):
+        url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}"
+        response = requests.get(url)
+        if response.status_code == 200:
+            word = response.text
+            pyramid.append(word)
+
+    return pyramid 
 
 
 def pokedex(low=1, high=5):
