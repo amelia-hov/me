@@ -28,52 +28,52 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
-print("/nWelcome to the guessing game!")
+    print("\nWelcome to the guessing game!")
 
-while True: 
-    lowerBound = input("Enter a lower bound: ")
-    try: 
-        lowerBound = int(lowerBound)
-        print(f"Great choice!")
-        break
-    except:
-      print(f"{lowerBound} isn't a valid number!")
-    
-while True:
-    upperBound = input(f"Enter an upper bound: ")
-    try:
-        upperBound = int(upperBound)
-        if upperBound >= lowerBound:
-            print(f"Excellent choice!! Creating a random number between {lowerBound} and {upperBound}... ")
+    while True: 
+        lowerBound = input("Enter a lower bound: ")
+        try: 
+            lowerBound = int(lowerBound)
+            print("Great choice!")
             break
-        else:
-          print(f"Choose a number bigger than {lowerBound}")
-    except:
-        print(f"{upperBound} isn't a valid number")
+        except:
+            print(f"{lowerBound} isn't a valid number!")
+        
+    while True:
+        upperBound = input(f"Enter an upper bound: ")
+        try:
+            upperBound = int(upperBound)
+            if upperBound >= lowerBound:
+                print(f"Excellent choice!! Creating a random number between {lowerBound} and {upperBound}... ")
+                break
+            else:
+                print(f"Choose a number bigger than {lowerBound}")
+        except:
+            print(f"{upperBound} isn't a valid number")
 
-real_Number = random.randint(lowerBound, upperBound)
+    real_Number = random.randint(lowerBound, upperBound)
 
-guessed = False
+    guessed = False
 
-while not guessed:
-    guessed_Number = input(f"Guess a number between {lowerBound} and {upperBound}: ")
-    try: 
-        guessed_Number = int(guessed_Number)
-        print(f"You guessed {guessed_Number},")
-        if guessed_Number == real_Number:
-            print(f"Yes! You got it! It was {real_Number}")
-            guessed = True
-        elif guessed_Number < lowerBound or guessed_Number > upperBound:
-            print(f"Between {lowerBound} and {upperBound} please...")
-        elif guessed_Number < real_Number:
-            print("Too small. AGAIN")
-        else:
-            print("Too big. AGAIN")
-    except:
-        print(f"{guessed_Number} isn't a valid number")
+    while not guessed:
+        guessed_Number = input(f"Guess a number between {lowerBound} and {upperBound}: ")
+        try: 
+            guessed_Number = int(guessed_Number)
+            print(f"You guessed {guessed_Number},")
+            if guessed_Number == real_Number:
+                print(f"Yes! You got it! It was {real_Number}")
+                guessed = True
+            elif guessed_Number < lowerBound or guessed_Number > upperBound:
+                print(f"Between {lowerBound} and {upperBound} please...")
+            elif guessed_Number < real_Number:
+                print("Too small. AGAIN")
+            else:
+                print("Too big. AGAIN")
+        except:
+            print(f"{guessed_Number} isn't a valid number")
 
+    return "You got it!"
 
-return "You got it!"
 
     # the tests are looking for the exact string "You got it!". Don't modify that!
 

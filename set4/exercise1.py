@@ -120,7 +120,31 @@ def pokedex(low=1, high=5):
     if r.status_code is 200:
         the_json = json.loads(r.text)
 
-    return {"name": None, "weight": None, "height": None}
+    pokedex_entry = []
+
+
+    for id in range(low, high):
+        url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+        r = requests.get(url)
+        if r.status_code == 200:
+            the_json = r.json()
+            pokedex_entry.append(the_json)
+
+    tallest = None 
+    max_height = -1
+    for pokemon in pokedex_entry:
+        if pokemon["height"] > max_height:
+            max_height = pokemon["height"]
+            tallest = pokemon
+
+    stats = {
+        "name": tallest["name"],
+        "weight": tallest["weight"],
+        "height": tallest["height"],
+
+    }
+    
+    return stats
 
 
 def diarist():
@@ -135,12 +159,22 @@ def diarist():
          not just LF like unix does now. If your comparison is failing this
          might be why. Try in rather than == and that might help.
     TIP: remember to commit 'lasers.pew' and push it to your repo, otherwise
-         the test will have nothing to look at.
+         the test will have nothing to look at. 
     TIP: this might come in handy if you need to hack a 3d print file in the future.
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
-    pass
+
+    number_of_occurrences = 0
+    with open("set4/Trispokedovetiles(laser).gcode", "r", encoding = "utf-8") as data: 
+        for line in data.readlines():
+            if "M10 P1" in line:
+            number_of_occurrences += 1
+
+
+
+    with open("set4/lasers.pew", "w", encoding = "utf-8") as f:
+        f.write(str(number_of_occurrences))
 
 
 if __name__ == "__main__":
@@ -151,15 +185,8 @@ if __name__ == "__main__":
 
     print(pokedex(low=3, high=7))
 
+
+
     diarist()
 
-    in_root = os.path.isfile("lasers.pew")
-    in_set4 = os.path.isfile("set4/lasers.pew")
-    if not in_set4 and not in_root:
-        print("diarist did not create lasers.pew")
-    elif not in_set4 and in_root:
-        print(
-            "diarist did create lasers.pew, but in the me folder, it should be in the set4 folder"
-        )
-    elif in_set4:
-        print("lasers.pew is in the right place")
+
