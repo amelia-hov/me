@@ -25,7 +25,7 @@ def password_please() -> str:
     least one upper case letter and one lowercase letter.
     TIP: don't put in a real password!"""
 
-    password = "password"
+    password = "Password"
     return password
 
 
@@ -60,11 +60,12 @@ def dictionary_please() -> dict:
 def is_it_5(some_number) -> bool:
     """Returns True if the argument passed is 5, otherwise returns False."""
 
+    well_is_it = False 
+
     if some_number == 5:
         return True
     else:
-        return False
-    
+        return well_is_it
     well_is_it = None
     return well_is_it
 
@@ -127,7 +128,7 @@ def fizz_buzz() -> list:
 
     for i in range(1,101):
         if i % 3 == 0 and i % 5 == 0:
-            fizz_buzz_list.append("Fizzbuzz")
+            fizz_buzz_list.append("FizzBuzz")
         elif i % 3 == 0:
             fizz_buzz_list.append("Fizz")
         elif i % 5 == 0: 
@@ -165,8 +166,9 @@ def the_chain_gang_5(the_value) -> bool:
     TIP: you've already written a function that returns True if the value is 5
     TIP: you've already written a function that subtracts 5
     """
-
-    return None
+    new_number = take_five(the_value)
+    is_five = is_it_5(new_number)
+    return is_five
 
 
 def pet_filter(letter="a") -> list:
@@ -184,7 +186,8 @@ def pet_filter(letter="a") -> list:
     ]
     # fmt: on
     filtered = []
-    filtered = [pet for pet in pets if letter in pets]
+
+    filtered = [pet for pet in pets if letter in pet]
     return filtered
 
 
@@ -201,7 +204,6 @@ def best_letter_for_pets() -> str:
     the_alphabet = string.ascii_lowercase
     most_popular_letter = ""
     
-
     return most_popular_letter
 
 
@@ -232,6 +234,7 @@ def make_filler_text_dictionary() -> dict:
 
     url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
     wd = {}
+    site = [requests.get(url+length).text]
 
     return wd
 
