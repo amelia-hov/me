@@ -253,8 +253,6 @@ def make_filler_text_dictionary() -> dict:
         id_dictionary[id] = id_list
     return id_dictionary
 
-    
-        
     return wd
 
 
@@ -272,9 +270,14 @@ def random_filler_text(number_of_words=200) -> str:
     my_dict = make_filler_text_dictionary()
 
     words = []
+
     for _ in range(number_of_words):
-        word_list: 
-        
+        word_length = random.choice(list(my_dict.keys()))
+        word = random.choice(my_dict[word_length])
+        words.append(word)
+
+    paragraph = ' '.join(words)
+    return paragraph
 
     return " ".join(words)
 
@@ -297,7 +300,32 @@ def fast_filler(number_of_words=200) -> str:
 
     fname = "dict_cache.json"
 
-    return None
+def fast_filler(number_of_words=200):
+    fname = "dict_cache.json"
+    
+    if os.path.exists(fname):
+        with open(fname, 'r') as f:
+            my_dict = json.load(f)
+        
+    else:
+        my_dict = make_filler_text_dictionary()
+        with open(fname, 'w') as f:
+            json.dump(my_dict, f)
+    
+    words = []
+
+    for _ in range(number_of_words):
+        word_length = random.randint(3,7)
+        word_list = my_dict[str(word_length)]
+        random_word = random.choice(word_list)
+        words.append(random_word)
+    
+    paragraph = ' '.join(words)
+
+    if not paragraph.endswith('.'):
+        paragraph += '.'
+    
+    return paragraph
 
 
 if __name__ == "__main__":
