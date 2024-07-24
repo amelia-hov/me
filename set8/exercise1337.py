@@ -124,11 +124,9 @@ def fizz_buzz() -> list:
          'FizzBuzz', 16, 17, ...]
     """
     fizz_buzz_list = []
-    # your code here
 
-    fizz_buzz_list = []
     for i in range(1,101):
-        if i % 3 == 0 or i % 5 == 0:
+        if i % 3 == 0 and i % 5 == 0:
             fizz_buzz_list.append("Fizzbuzz")
         elif i % 3 == 0:
             fizz_buzz_list.append("Fizz")
@@ -136,12 +134,11 @@ def fizz_buzz() -> list:
             fizz_buzz_list.append("Buzz")
         else:
             fizz_buzz_list.append(i)
-
     return fizz_buzz_list
 
 
 def set_it_on_fire(input_string="very naughty boy") -> str:
-    """Interleave the input_string with the 🔥 emoji.
+    """Interleave the input_string with the  emoji.
 
     Given any string, interleave it with 🔥. Also make it be upper case.
     e.g. "very naughty boy" should return the string
@@ -152,7 +149,10 @@ def set_it_on_fire(input_string="very naughty boy") -> str:
     TIP: make sure that you have a 🔥 on both ends of the string.
     """
 
-    return None
+    fire_emoji = "🔥"
+    set_it_on_fire = fire_emoji.join(input_string)
+    uppercase = set_it_on_fire.upper()
+    return fire_emoji + uppercase + fire_emoji
 
 
 def the_chain_gang_5(the_value) -> bool:
@@ -184,7 +184,7 @@ def pet_filter(letter="a") -> list:
     ]
     # fmt: on
     filtered = []
-
+    filtered = [pet for pet in pets if letter in pets]
     return filtered
 
 
@@ -200,6 +200,7 @@ def best_letter_for_pets() -> str:
 
     the_alphabet = string.ascii_lowercase
     most_popular_letter = ""
+    
 
     return most_popular_letter
 
