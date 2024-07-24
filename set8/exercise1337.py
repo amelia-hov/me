@@ -321,6 +321,7 @@ def fast_filler(number_of_words=200):
         words.append(random_word)
     
     paragraph = ' '.join(words)
+    paragraph = paragraph.capitalize() + '.'
 
     if not paragraph.endswith('.'):
         paragraph += '.'
