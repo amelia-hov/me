@@ -38,17 +38,23 @@ def list_please() -> list[Any]:
 
 def int_list_please() -> list[int]:
     """Returns a list of integers, any integers are fine."""
-    return None
+
+    integer_list = [1, 2, 3, 4, 5]
+    return integer_list
 
 
 def string_list_please() -> list[str]:
     """Returns a list of strings, any string are fine."""
-    return None
+
+    string_list = ["one", "two", "three"]
+    return string_list
 
 
 def dictionary_please() -> dict:
     """Returns a dictionary, anything you like."""
-    return None
+
+    dict_list = {"python": "me"}
+    return dict_list
 
 
 def is_it_5(some_number) -> bool:
