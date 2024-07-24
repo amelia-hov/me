@@ -203,7 +203,15 @@ def best_letter_for_pets() -> str:
 
     the_alphabet = string.ascii_lowercase
     most_popular_letter = ""
-    
+    max_pet_count = 0 
+
+    for letter in the_alphabet:
+        pet_list = pet_filter(letter)
+        pet_count = len(pet_list)
+        if pet_count > max_pet_count:
+            max_pet_count = pet_count
+            most_popular_letter = letter
+
     return most_popular_letter
 
 
@@ -231,11 +239,22 @@ def make_filler_text_dictionary() -> dict:
     (i.e. 3, 4, 5, 6, 7 and 4 words for each)
     TIP: you'll need the requests library
     """
+    id = 3
 
-    url = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength="
-    wd = {}
-    site = [requests.get(url+length).text]
+    id_dictionary = {}
+    for id in range(3,8):
+        id_list = []
+        for _ in range(4):
+            url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={id}"
+            wd = {}
+            r = requests.get(url)
+            word = r.text
+            id_list.append(word)
+        id_dictionary[id] = id_list
+    return id_dictionary
 
+    
+        
     return wd
 
 
@@ -253,6 +272,9 @@ def random_filler_text(number_of_words=200) -> str:
     my_dict = make_filler_text_dictionary()
 
     words = []
+    for _ in range(number_of_words):
+        word_list: 
+        
 
     return " ".join(words)
 
