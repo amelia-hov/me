@@ -1,1 +1,1 @@
-TODO: Reflect on what you learned this week and what is still unclear.
+Learnt how to install RISE and use it. Finally I made a few starting graphs. I didn't structure out my presentation and just made graphs based on the data. Decided to plan out the graphs order and incorporate text nearing the due date. Also on a good note, ITS NEARLY BREAK.

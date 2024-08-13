@@ -1,1 +1,1 @@
-TODO: Reflect on what you learned this week and what is still unclear.
+Revised for the quiz again. We played around with pandas, changing all the variables to our own. It was cool to see how everything changed even if it was just changing a word or value. Looking at the example graphs in the basic_pandas file, made me feel slightly anxious as it seemed like a lot to learn in such a short period of time. PLease wish me luckkkk :0

@@ -1,1 +1,1 @@
-TODO: Reflect on what you learned this week and what is still unclear.
+Got introduced to Pandas and how to use it. Tried to find data that I was kind of interested in but there was nothing, so I decided to go with data based of the different types of visas from departures and arrivals.

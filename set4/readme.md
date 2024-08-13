@@ -31,3 +31,5 @@ stats = { ---> creates a dictionary called stats, stroing the name, weight and h
 "weight": tallest["weight"],
 "height": tallest["height"],
 }
+
+I should actually fix this lol.
